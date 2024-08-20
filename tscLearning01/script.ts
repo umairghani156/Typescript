@@ -1,6 +1,10 @@
 var a = "Umair";
 console.log(a);
 
-const b = 234;
-console.log(b);
+
+// function hello(a:number, b: number){
+//     return a * b 
+// }
+// hello(2,3)
+
 
