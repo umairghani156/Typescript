@@ -35,3 +35,9 @@ type User = (m: number, n: number)=> number;
 const func3: User = (m, n) => {
     return m * n
 }
+
+type Person = {
+name : string,
+    age : number,
+    address: string
+}
