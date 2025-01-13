@@ -41,3 +41,7 @@ name : string,
     age : number,
     address: string
 }
+
+function hello(userId: string): string =>{
+    return userId + Date.now();
+}
