@@ -160,3 +160,19 @@ function completeOrder(userId: number): Person| undefined{
 completeOrder(1)
 
 
+<<<<<<< HEAD
+=======
+const func3: User = (m, n) => {
+    return m * n
+}
+
+type Person = {
+name : string,
+    age : number,
+    address: string
+}
+
+function hello(userId: string): string =>{
+    return userId + Date.now();
+}
+>>>>>>> 2a0f3e2dc01525787feab0404eda6e80d4ce9766
