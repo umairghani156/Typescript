@@ -176,3 +176,7 @@ function hello(userId: string): string =>{
     return userId + Date.now();
 }
 >>>>>>> 2a0f3e2dc01525787feab0404eda6e80d4ce9766
+
+function hello2(username:string): string=>{
+   return arr.find((val)=> val.name === username);
+}
