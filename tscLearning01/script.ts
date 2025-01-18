@@ -180,3 +180,18 @@ function hello(userId: string): string =>{
 function hello2(username:string): string=>{
    return arr.find((val)=> val.name === username);
 }
+interface Person {
+  name: string; 
+  age: number;   
+  greet(): void; 
+}
+
+const person: Person = {
+  name: "John",
+  age: 30,
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+person.greet();
