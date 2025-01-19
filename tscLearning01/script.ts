@@ -195,3 +195,11 @@ const person: Person = {
 };
 
 person.greet();
+
+interface Person2 {
+   name : string
+}
+interface Person3 extends Person2 {
+   age: number
+   address : string
+}
