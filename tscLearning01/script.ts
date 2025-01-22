@@ -203,3 +203,8 @@ interface Person3 extends Person2 {
    age: number
    address : string
 }
+
+function printArray<T>(items: T[]): void{
+   items.forEach((val)=> console.log(val))
+}
+printArray(["umair","ahmed","ghani"])
