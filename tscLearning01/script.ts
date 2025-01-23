@@ -176,3 +176,35 @@ function hello(userId: string): string =>{
     return userId + Date.now();
 }
 >>>>>>> 2a0f3e2dc01525787feab0404eda6e80d4ce9766
+
+function hello2(username:string): string=>{
+   return arr.find((val)=> val.name === username);
+}
+interface Person {
+  name: string; 
+  age: number;   
+  greet(): void; 
+}
+
+const person: Person = {
+  name: "John",
+  age: 30,
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+person.greet();
+
+interface Person2 {
+   name : string
+}
+interface Person3 extends Person2 {
+   age: number
+   address : string
+}
+
+function printArray<T>(items: T[]): void{
+   items.forEach((val)=> console.log(val))
+}
+printArray(["umair","ahmed","ghani"])
