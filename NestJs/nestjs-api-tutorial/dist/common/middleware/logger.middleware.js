@@ -6,24 +6,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SongsModule = void 0;
+exports.LoggerMiddleware = void 0;
 const common_1 = require("@nestjs/common");
-const songs_controller_1 = require("./songs.controller");
-const songs_service_1 = require("./songs.service");
-const connection_1 = require("../common/constants/connection");
-let SongsModule = class SongsModule {
+let LoggerMiddleware = class LoggerMiddleware {
+    use(req, res, next) {
+        console.log('Request ......', new Date().toDateString());
+        next();
+    }
 };
-exports.SongsModule = SongsModule;
-exports.SongsModule = SongsModule = __decorate([
-    (0, common_1.Module)({
-        controllers: [songs_controller_1.SongsController],
-        providers: [
-            songs_service_1.SongsService,
-            {
-                provide: 'CONNECTION',
-                useValue: connection_1.connecton
-            }
-        ]
-    })
-], SongsModule);
-//# sourceMappingURL=songs.module.js.map
+exports.LoggerMiddleware = LoggerMiddleware;
+exports.LoggerMiddleware = LoggerMiddleware = __decorate([
+    (0, common_1.Injectable)()
+], LoggerMiddleware);
+//# sourceMappingURL=logger.middleware.js.map

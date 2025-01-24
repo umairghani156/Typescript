@@ -16,11 +16,6 @@ class CreateSongDTO {
 exports.CreateSongDTO = CreateSongDTO;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsNumber)(),
-    __metadata("design:type", Number)
-], CreateSongDTO.prototype, "id", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateSongDTO.prototype, "title", void 0);
@@ -34,4 +29,9 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateSongDTO.prototype, "album", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsNumber)(),
+    __metadata("design:type", Number)
+], CreateSongDTO.prototype, "releaseDate", void 0);
 //# sourceMappingURL=create-song-dto.js.map

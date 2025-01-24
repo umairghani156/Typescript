@@ -18,20 +18,31 @@ const songs_service_1 = require("./songs.service");
 const create_song_dto_1 = require("./dto/create-song-dto");
 const update_song_dto_1 = require("./dto/update-song-dto");
 let SongsController = class SongsController {
-    constructor(songsService) {
+    constructor(songsService, connection) {
         this.songsService = songsService;
+        this.connection = connection;
+        console.log(`Connection: ${this.connection.CONNECTION_STRING}`);
     }
-    createSong(dto) {
+    async createSong(dto) {
         return this.songsService.createSong(dto);
     }
     getSongs() {
-        return this.songsService.getSongs();
+        try {
+            return this.songsService.getSongs();
+        }
+        catch (error) {
+            throw new common_1.HttpException("Server error", common_1.HttpStatus.INTERNAL_SERVER_ERROR, {
+                cause: error
+            });
+        }
     }
     updateSong(dto, id) {
         console.log(typeof id);
         return this.songsService.updateSong(dto, id);
     }
-    getSong() { }
+    getSong(id) {
+        return "Fetch song with id: " + typeof id;
+    }
     deleteSong() { }
 };
 exports.SongsController = SongsController;
@@ -40,7 +51,7 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_song_dto_1.CreateSongDTO]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], SongsController.prototype, "createSong", null);
 __decorate([
     (0, common_1.Get)("all-songs"),
@@ -58,8 +69,9 @@ __decorate([
 ], SongsController.prototype, "updateSong", null);
 __decorate([
     (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)("id", new common_1.ParseIntPipe({ errorHttpStatusCode: common_1.HttpStatus.NOT_ACCEPTABLE }))),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], SongsController.prototype, "getSong", null);
 __decorate([
@@ -70,6 +82,7 @@ __decorate([
 ], SongsController.prototype, "deleteSong", null);
 exports.SongsController = SongsController = __decorate([
     (0, common_1.Controller)('songs'),
-    __metadata("design:paramtypes", [songs_service_1.SongsService])
+    __param(1, (0, common_1.Inject)('CONNECTION')),
+    __metadata("design:paramtypes", [songs_service_1.SongsService, Object])
 ], SongsController);
 //# sourceMappingURL=songs.controller.js.map

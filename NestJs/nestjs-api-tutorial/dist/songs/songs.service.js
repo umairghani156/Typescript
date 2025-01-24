@@ -11,22 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SongsService = void 0;
 const common_1 = require("@nestjs/common");
+const prisma_service_1 = require("../prisma/prisma.service");
 let SongsService = class SongsService {
-    constructor() {
+    constructor(prisma) {
+        this.prisma = prisma;
         this.songs = [
             {
-                id: 1,
                 title: 'song1',
                 artist: 'artist1',
                 album: 'album1',
             }
         ];
     }
-    createSong(data) {
-        this.songs.push(data);
-        return this.songs;
+    async createSong(data) {
+        if (!data.album || !data.artist || !data.title || !data.releaseDate) {
+            throw new Error('All fields are required');
+        }
+        return this.prisma({});
     }
     getSongs() {
+        throw new Error('Method not implemented.');
         return this.songs;
     }
     updateSong(data, id) {
@@ -46,6 +50,6 @@ let SongsService = class SongsService {
 exports.SongsService = SongsService;
 exports.SongsService = SongsService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
 ], SongsService);
 //# sourceMappingURL=songs.service.js.map

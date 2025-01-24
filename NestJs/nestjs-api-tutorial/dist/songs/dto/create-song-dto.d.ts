@@ -1,6 +1,6 @@
 export declare class CreateSongDTO {
-    readonly id: number;
-    readonly title: string;
-    readonly artist: string;
-    readonly album: string;
+    title: string;
+    artist: string;
+    album: string;
+    releaseDate: number;
 }

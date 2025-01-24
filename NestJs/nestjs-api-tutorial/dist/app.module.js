@@ -14,7 +14,12 @@ const bookmark_module_1 = require("./bookmark/bookmark.module");
 const prisma_module_1 = require("./prisma/prisma.module");
 const songs_module_1 = require("./songs/songs.module");
 const events_module_1 = require("./events/events.module");
+const logger_middleware_1 = require("./common/middleware/logger.middleware");
+const songs_controller_1 = require("./songs/songs.controller");
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer.apply(logger_middleware_1.LoggerMiddleware).forRoutes(songs_controller_1.SongsController);
+    }
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
