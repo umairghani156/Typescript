@@ -204,6 +204,35 @@ interface Person3 extends Person2 {
    address : string
 }
 
+type Person ={
+name : string,
+age: number
+}
+
+const obj: Person = {
+   name :"Umair",
+   age:23
+}
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+const person1: Person = { name: "Ali", age: 25 };
+
+interface Animal {
+  name: string;
+}
+
+interface Dog extends Animal {
+  breed: string;
+}
+
+const dog: Dog = { name: "Bulldog", breed: "Pug" };
+
+let personInfo: [string, number?, string?] = ["John", 30];
+
 function printArray<T>(items: T[]): void{
    items.forEach((val)=> console.log(val))
 }
