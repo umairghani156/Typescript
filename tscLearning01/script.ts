@@ -237,3 +237,13 @@ function printArray<T>(items: T[]): void{
    items.forEach((val)=> console.log(val))
 }
 printArray(["umair","ahmed","ghani"])
+
+enum Direction {
+   up = 10,
+   down = 20,
+   left = 30,
+   right = 40
+}
+let move: Direction = Direction.up
+console.log(move)
+   
