@@ -246,4 +246,12 @@ enum Direction {
 }
 let move: Direction = Direction.up
 console.log(move)
+
+
+enum User {
+  admin,
+  user,
+  manager
+}
+   
    
