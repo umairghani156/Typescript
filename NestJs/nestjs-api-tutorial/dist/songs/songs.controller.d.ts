@@ -6,13 +6,28 @@ export declare class SongsController {
     private songsService;
     private connection;
     constructor(songsService: SongsService, connection: Connection);
-    createSong(dto: CreateSongDTO): Promise<any>;
-    getSongs(): {
+    createSong(dto: CreateSongDTO): Promise<{
+        message: string;
+        data: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            title: string;
+            artist: string;
+            album: string;
+            releaseDate: Date;
+        };
+    }>;
+    getSongs(): Promise<{
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
         title: string;
         artist: string;
         album: string;
-    }[];
-    updateSong(dto: UpdateSongDTO, id: number): {
+        releaseDate: Date;
+    }[]>;
+    updateSong(dto: UpdateSongDTO, artName: string): {
         title: string;
         artist: string;
         album: string;

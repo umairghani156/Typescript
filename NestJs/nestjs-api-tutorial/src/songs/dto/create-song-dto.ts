@@ -15,8 +15,8 @@ export class CreateSongDTO {
     album: string;
 
     @IsNotEmpty()
-    @IsNumber()
-    releaseDate: number
+    @IsString()
+    releaseDate: string
 
    
 }

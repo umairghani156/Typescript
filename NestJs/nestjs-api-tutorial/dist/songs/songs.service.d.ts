@@ -5,13 +5,25 @@ export declare class SongsService {
     private prisma;
     private songs;
     constructor(prisma: PrismaService);
-    createSong(data: CreateSongDTO): Promise<any>;
-    getSongs(): {
+    createSong(data: CreateSongDTO): Promise<{
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
         title: string;
         artist: string;
         album: string;
-    }[];
-    updateSong(data: UpdateSongDTO, id: number): {
+        releaseDate: Date;
+    }>;
+    getSongs(): Promise<{
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        artist: string;
+        album: string;
+        releaseDate: Date;
+    }[]>;
+    updateSong(data: UpdateSongDTO, artName: string): {
         title: string;
         artist: string;
         album: string;

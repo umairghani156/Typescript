@@ -9,29 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateSongDTO = void 0;
+exports.SignupDDTO = void 0;
 const class_validator_1 = require("class-validator");
-class CreateSongDTO {
+class SignupDDTO {
 }
-exports.CreateSongDTO = CreateSongDTO;
+exports.SignupDDTO = SignupDDTO;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], CreateSongDTO.prototype, "title", void 0);
+], SignupDDTO.prototype, "firstName", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], CreateSongDTO.prototype, "artist", void 0);
+], SignupDDTO.prototype, "lastName", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsEmail)(),
+    __metadata("design:type", String)
+], SignupDDTO.prototype, "email", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], CreateSongDTO.prototype, "album", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreateSongDTO.prototype, "releaseDate", void 0);
-//# sourceMappingURL=create-song-dto.js.map
+], SignupDDTO.prototype, "password", void 0);
+//# sourceMappingURL=signup-user-dto.js.map

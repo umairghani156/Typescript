@@ -11,14 +11,17 @@ const common_1 = require("@nestjs/common");
 const songs_controller_1 = require("./songs.controller");
 const songs_service_1 = require("./songs.service");
 const connection_1 = require("../common/constants/connection");
+const prisma_service_1 = require("../prisma/prisma.service");
 let SongsModule = class SongsModule {
 };
 exports.SongsModule = SongsModule;
 exports.SongsModule = SongsModule = __decorate([
     (0, common_1.Module)({
+        exports: [prisma_service_1.PrismaService],
         controllers: [songs_controller_1.SongsController],
         providers: [
             songs_service_1.SongsService,
+            prisma_service_1.PrismaService,
             {
                 provide: 'CONNECTION',
                 useValue: connection_1.connecton

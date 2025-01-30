@@ -19,12 +19,18 @@ export class SongsController {
     async createSong(
         @Body() dto: CreateSongDTO
     ) {
-      return this.songsService.createSong(dto);
+        
+      const result = await this.songsService.createSong(dto);
+
+      return {
+        message: "Song created successfully",
+        data: result
+      }
 
     }
 
     @Get("all-songs")
-    getSongs() {
+    async getSongs() {
         try {
             return this.songsService.getSongs()
             
@@ -38,10 +44,10 @@ export class SongsController {
 
     @Put(":id")
     updateSong(@Body() dto: UpdateSongDTO,
-    @Param ("id") id: number) {
-        console.log(typeof id);
+    @Param ("artName") artName: string) {
+        console.log(typeof artName);
         
-         return this.songsService.updateSong(dto, id)
+         return this.songsService.updateSong(dto, artName)
     }
 
     @Get(":id")

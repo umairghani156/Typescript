@@ -27,19 +27,42 @@ let SongsService = class SongsService {
         if (!data.album || !data.artist || !data.title || !data.releaseDate) {
             throw new Error('All fields are required');
         }
-        return this.prisma({});
+        try {
+            return await this.prisma.song.create({
+                data: {
+                    title: data.title,
+                    artist: data.artist,
+                    album: data.album,
+                    releaseDate: new Date(data.releaseDate)
+                }
+            });
+        }
+        catch (error) {
+            if (error.code === 'P2002') {
+                throw new common_1.HttpException(`A song with the title '${data.title}' already exists.`, common_1.HttpStatus.BAD_REQUEST);
+            }
+            throw new common_1.HttpException('An unexpected error occurred while creating the song.', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-    getSongs() {
-        throw new Error('Method not implemented.');
-        return this.songs;
+    async getSongs() {
+        try {
+            const songs = await this.prisma.song.findMany();
+            if (!songs) {
+                throw new common_1.HttpException("No songs found", common_1.HttpStatus.NOT_FOUND);
+            }
+            return songs;
+        }
+        catch (error) {
+            throw new common_1.HttpException("Server error", common_1.HttpStatus.INTERNAL_SERVER_ERROR, { cause: error });
+        }
     }
-    updateSong(data, id) {
+    updateSong(data, artName) {
         if (!this.songs || this.songs.length === 0) {
             throw new Error('No songs found');
         }
-        console.log(data, typeof id);
+        console.log(data, typeof artName);
         this.songs = this.songs.map(song => {
-            if (song.id === Number(id)) {
+            if (song.artist === artName) {
                 return { ...song, ...data };
             }
             return song;

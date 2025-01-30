@@ -10,13 +10,15 @@ exports.AuthModule = void 0;
 const common_1 = require("@nestjs/common");
 const auth_controller_1 = require("./auth.controller");
 const auth_service_1 = require("./auth.service");
+const prisma_service_1 = require("../prisma/prisma.service");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
 exports.AuthModule = AuthModule = __decorate([
     (0, common_1.Module)({
         controllers: [auth_controller_1.AuthController],
-        providers: [auth_service_1.AuthService],
+        providers: [auth_service_1.AuthService, prisma_service_1.PrismaService],
+        exports: [prisma_service_1.PrismaService]
     })
 ], AuthModule);
 //# sourceMappingURL=auth.module.js.map

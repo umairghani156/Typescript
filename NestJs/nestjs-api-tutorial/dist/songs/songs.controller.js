@@ -24,9 +24,13 @@ let SongsController = class SongsController {
         console.log(`Connection: ${this.connection.CONNECTION_STRING}`);
     }
     async createSong(dto) {
-        return this.songsService.createSong(dto);
+        const result = await this.songsService.createSong(dto);
+        return {
+            message: "Song created successfully",
+            data: result
+        };
     }
-    getSongs() {
+    async getSongs() {
         try {
             return this.songsService.getSongs();
         }
@@ -36,9 +40,9 @@ let SongsController = class SongsController {
             });
         }
     }
-    updateSong(dto, id) {
-        console.log(typeof id);
-        return this.songsService.updateSong(dto, id);
+    updateSong(dto, artName) {
+        console.log(typeof artName);
+        return this.songsService.updateSong(dto, artName);
     }
     getSong(id) {
         return "Fetch song with id: " + typeof id;
@@ -57,14 +61,14 @@ __decorate([
     (0, common_1.Get)("all-songs"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], SongsController.prototype, "getSongs", null);
 __decorate([
     (0, common_1.Put)(":id"),
     __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.Param)("id")),
+    __param(1, (0, common_1.Param)("artName")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [update_song_dto_1.UpdateSongDTO, Number]),
+    __metadata("design:paramtypes", [update_song_dto_1.UpdateSongDTO, String]),
     __metadata("design:returntype", void 0)
 ], SongsController.prototype, "updateSong", null);
 __decorate([
