@@ -253,5 +253,10 @@ enum User {
   user,
   manager
 }
-   
+
+enum User {
+  admin,
+  user,
+  manager
+}
    
