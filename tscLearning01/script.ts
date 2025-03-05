@@ -259,4 +259,13 @@ enum User {
   user,
   manager
 }
+
+interface Product{
+   name: string,
+   price: number,
+   totalSum: number,
+   orderId: string[],
+   createdAt: string,
+   updatedAt: string,
+}
    
