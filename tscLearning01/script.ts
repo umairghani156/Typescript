@@ -268,4 +268,22 @@ interface Product{
    createdAt: string,
    updatedAt: string,
 }
+
+type Person = {
+    id: number,
+    name: string,
+    age: number,
+}
+
+const person1: Person[] = [{
+    id: 1,
+    name: "Umair",
+    age: 23,
+},
+{
+    id: 2,
+    name: "Ahmed",
+    age: 22,
+},
+];
    
