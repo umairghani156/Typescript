@@ -1,3 +1,7 @@
+type Product ={
+   name:string,
+   age:number
+}
 // var a = "Umair";
 // console.log(a);
 
