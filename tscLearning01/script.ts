@@ -18,6 +18,10 @@ type Product ={
 //     return m + n
 // }
 
+const updateHandler = (data:[]): Product=>{
+   return data.map(val=> val.name );
+}
+
 // func(2,3)
 
 // const funcb = (m:number, n:number): number=>{
