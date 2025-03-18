@@ -5,6 +5,12 @@ type Product ={
 // var a = "Umair";
 // console.log(a);
 
+type Post ={
+   id: string,
+   name:string,
+}
+   
+
 
 // function hello(a:number, b: number): number{
 //     return a * b 
